@@ -1,6 +1,20 @@
+I spent about 10h of free time building a sonar depth sensor into a surfboard.
+
+# Why
+
 Out surfing, I often wonder how deep the water is, and suspect based on wave behavior that I'm over a deep spot or a shallow spot. Waves generally break when they enter shallow water (there are various conflicting formulas for figuring out exactly how shallow). At beach breaks like San Onofre Bluffs, the best place to wait for a good wave is right over a sandbar, and the sandbars can move around from day to day.
 
 One day I decided to stop wondering and find out. I figured I could build a depth sensing sonar into my board and maybe I'd learn a thing or two about the sand underneath me, the dynamics of waves, and maybe even improve my surfing. Along the way I also learned some things about my surfboard, glue, wireless power, etc. It was fun and it works so I figured I'd share all the details here.
+
+# How
+
+## Tools
+- Phillips screwdriver
+- Drill
+- Largeish drill bit
+- 1 3/4" Hole saw (or slightly bigger I guess if you can find one)
+- Small saw (the one on my Leatherman Wave worked nicely)
+- Dremel (I used the Dremel Lite. It's pretty lame. I miss my plug-in Dremel which I gave away.)
 
 ## Ingredients
 
@@ -23,14 +37,6 @@ Velcro|3M| | | |Any velcro would work fine probably
 Mounting tape|Scotch|108-SML|[amazon](https://www.amazon.com/dp/B01MZ2RVCQ)|$16.53 for an infinite supply|
 Silicone sealant|| | | |
 
-## Tools
- - Phillips screwdriver
- - Drill 
- - Largeish drill bit
- - 1 3/4" Hole saw (or slightly bigger I guess if you can find one)
- - Small saw (the one on my Leatherman Wave worked nicely)
- - Dremel
-
 ## Recipe
 
 Note: I switch back and forth bewtween imperative tense (Cut the hole) to first person (I cut the hole) in the below. Imperative is when I'm strongly recommending doing it my way. First person is when I feel like there's a good chance you could improve on my methods!
@@ -46,6 +52,9 @@ Note: I switch back and forth bewtween imperative tense (Cut the hole) to first 
  
  Cut a hole in the top of the board just big enough for the Polycase box. Drill a hole in the bottom of your board with the hole saw to put the sonar in. When you flip the board, remember that the sides switch! This sounds obvious, but... turns out it's an easy mistake to make (embarrased face). If you used a 1 3/4" hole saw you'll find it's a little small and needs enlarging -- I hacked away some foam and carved away some of the plastic to enlarge the circle. I cut a channel in the bottom of the board for the cable, but didn't go all the way to the sensor hole. For cutting through the plastic on the bottom of the board I used a dremel at first and then used my Leatherman Wave saw, cutting at about a 45 deg angle to remove a triangular prism of foam with a rectangle of slick plastic on top (the "channel lid"). Then I used a drill with big drill bit to make the connections between the sensor hole, the channel, and the Polycase. I cut away enough in the "channel" to fit the excess cable, and glued the "channel lid" back on. I sealed around the edges of the sensor with silicone sealant. 
 
+1. **Power** Add velcro strips to the charging pad and the top of the Polycase. Now you can keep your board vertical in a board rack and slap the charger on it. 
+   
+I didn't add an external power switch of any kind. Supposedly, the PiSugar S has an automatic turn-on feature where it starts up when you connect power. I figured I could let it run to the low-voltage disconnect (3V) and then connect the power overnight. However, I can't seem to get this feature to work. I've had to open up the box and flip the power switch every time. Still working on this one -- let me know if you solve it.
 
 ## Is the surfboard watertight?
 I was concerned about compromising the watertightness of my board. Somewhere on the internet I read a heretic view that foamies don't get waterlogged and I thought I might as well give it a go. I weighed the foam cylinder I cut on scale that measures to the gram (unfortunately I don't have anything better hand) and got 3g. I soaked it in water under a weight for a couple of days and it still weighed 3g. Note that this is fresh water, not salt water, and the repeated compression of taking it surfing could be different than the 20lb barbell I put on it (only one side resting on the foam, so something like 10lbs compression).
