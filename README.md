@@ -1,5 +1,7 @@
 I spent about 10h of free time building a sonar depth sensor into a surfboard.
 
+<img src="https://user-images.githubusercontent.com/854789/136716532-c8290415-742d-4497-bd39-fff4d4448e42.png" height=300px />  <img src="https://user-images.githubusercontent.com/854789/136716561-d0a32797-1715-4c74-bac9-be51f06f4071.png" height=300px />
+
 # Why
 
 Out surfing, I often wonder how deep the water is, and suspect based on wave behavior that I'm over a deep spot or a shallow spot. Waves generally break when they enter shallow water (there are various conflicting formulas for figuring out exactly how shallow). At beach breaks like San Onofre Bluffs, the best place to wait for a good wave is right over a sandbar, and the sandbars can move around from day to day.
