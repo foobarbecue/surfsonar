@@ -1,4 +1,4 @@
-I spent about 10h of free time building a sonar depth sensor into a surfboard.
+# Putting a sonar depth sensor into a surfboard
 
 <img src="https://user-images.githubusercontent.com/854789/136716532-c8290415-742d-4497-bd39-fff4d4448e42.png" height=350px />  <img src="https://user-images.githubusercontent.com/854789/136716561-d0a32797-1715-4c74-bac9-be51f06f4071.png" height=350px /> <img src="https://user-images.githubusercontent.com/854789/136716695-0046fa21-0816-493a-a275-2234a853a4c8.png" height=350px/>
 
