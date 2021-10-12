@@ -77,7 +77,6 @@ I've taken it out for one test surf and the numbers were very reasonable once I 
 
 
 ## Todo
- - [ ] Get auto turn-on working properly
  - [ ] Rotate display to correct orientation
  - [ ] Parallize display update and sonar recording so it doesn't block
  - [ ] Record the full waveform
