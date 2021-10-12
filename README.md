@@ -60,13 +60,13 @@ Note: I switch back and forth bewtween imperative tense (Cut the hole) to first 
     <img src=https://user-images.githubusercontent.com/854789/136716834-6a5c9945-1a30-4f0e-b6d1-1cc34bdb4883.jpg height=200px/> <img src=https://user-images.githubusercontent.com/854789/136716840-26b05243-dd3a-4486-a1de-0783d4b40a2b.jpg height=200px/>
 
 
-1. **Power** Add velcro strips to the charging pad and the top of the Polycase. Now you can keep your board vertical in a board rack and slap the charger on it. <br/><br/> I didn't add an external power switch of any kind. Supposedly, the PiSugar S has an automatic turn-on feature where it starts up when you connect power. I figured I could let it run to the low-voltage disconnect (3V) and then connect the power overnight. However, I can't seem to get this feature to work. I've had to open up the box and flip the power switch every time. Still working on this one -- let me know if you solve it.
+1. **Power** Add velcro strips to the charging pad and the top of the Polycase. Now you can keep your board vertical in a board rack and slap the charger on it. <br/><br/> I didn't add an external power switch of any kind. The PiSugar S has a feature where it switches off when the battery gets down to 3V, and switches back on when the battery is charged to 3.6V. It seems to run for 5h or so on a charge (careful test pending). So, my system is generally to attach the charger to it the night before and let it run all day until the low-voltage disconnect turns it off. The PiSugar also has a feature where attaching power should turn on the Pi even if it was shutdown normally with high battery voltage. To enable both of these auto-turn-on behaviors, there's a confusingly labelled switch, labelled AUTO on one side and ON on the other. The switch should be set on the ON side to enable the automatic behaviors.
 
 
     <img src="https://user-images.githubusercontent.com/854789/136716242-d8008624-e3d6-4af2-ab13-26b752df327a.JPG" height="200" > <img src="https://user-images.githubusercontent.com/854789/136716248-e706d4dc-2ca8-4af2-b104-d08a6375e307.JPG" height="200" >
 
 
-## Is the surfboard watertight?
+## Does this ruin the surfboard?
 I was concerned about compromising the watertightness of my board. Somewhere on the internet I read a heretic view that foamies don't get waterlogged and I thought I might as well give it a go. I weighed the foam cylinder I cut on scale that measures to the gram (unfortunately I don't have anything better hand) and got 3g. I soaked it in water under a weight for a couple of days and it still weighed 3g. Note that this is fresh water, not salt water, and the repeated compression of surfing on it might change things.
 
   <img src=https://user-images.githubusercontent.com/854789/136716757-5b8c0db4-a713-429d-80d4-24cacff93642.jpg height=200px/> <img src=https://user-images.githubusercontent.com/854789/136716776-aa332835-18a8-4226-a3ea-e9d427427208.png height=200px/>
