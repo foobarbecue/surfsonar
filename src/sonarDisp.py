@@ -35,7 +35,7 @@ with open(f'/home/pi/data/{datetime.now()}.txt','w') as profiledata:
         data = myPing.get_distance()
         profile = myPing.get_profile()
         profiledata.write(str(profile))
-        data_str = f"{data['distance'] / 1000 :4.1f}m{data['confidence']:3}%"
+        data_str = f"{data['distance'] / 1000 :4.1f}m\n{data['confidence']:3}%"
         logging.info(data_str)
         time_draw.rectangle((0, 0, epd.width, epd.height), fill=255)
         time_draw.text((0, 0), data_str, font=font, fill=0)
