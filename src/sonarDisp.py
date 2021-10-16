@@ -34,6 +34,7 @@ with open(f'/home/pi/data/{datetime.now()}.txt','w') as profiledata:
     while True:
         data = myPing.get_distance()
         profile = myPing.get_profile()
+        profile['timestamp'] = datetime.now()
         profiledata.write(str(profile)+'\n')
         data_str = f"{data['distance'] / 1000 :4.1f}m\n{data['confidence']:3}%"
         logging.info(data_str)
