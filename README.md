@@ -88,6 +88,7 @@ Note: I switch back and forth bewtween imperative tense (Cut the hole) to first 
 
 # Does this ruin the surfboard?
 I was concerned about compromising the watertightness of my board. Somewhere on the internet I read a heretic view that foamies don't get waterlogged, which sure would be nice, wouldn't it? I figured I'd try a test. I weighed the foam cylinder I cut on scale that measures to the gram (unfortunately I don't have anything better hand) and got 3g. I soaked it in water under a weight for a couple of days and it still weighed 3g. Note that this is fresh water, not salt water, and I suspect the repeated compression of surfing on it is what actually drives water into the foam, and I didn't test that.
+
 <img src="https://user-images.githubusercontent.com/854789/136716757-5b8c0db4-a713-429d-80d4-24cacff93642.jpg" height="200" /> <img src="https://user-images.githubusercontent.com/854789/136716776-aa332835-18a8-4226-a3ea-e9d427427208.png" height="200" />
 
 
