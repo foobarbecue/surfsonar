@@ -95,7 +95,7 @@ I was concerned about compromising the watertightness of my board. Somewhere on 
 
 
 # Does it work?
-I've taken it out for one test surf and the numbers were very reasonable once I got well past the break. I paddled out to see and watched the depth tick up about 2.4m to 3.2m, reading 100% confidence most of the time. However, closer to shore, near the breaking waves, I was getting nonsense readings and low confidence. I suspect this is because the acoustic energy of the breaking waves swamps the ping signal. I need to look at the full waveform data to figure out if I can get good numbers in the surf zone. In the interactive plot below, you can see the two periods where I sat waiting outside. The surf was too good to collect more data than that!
+I've taken it out for one test surf and the numbers were very reasonable once I got well past the break. I paddled out to see and watched the depth tick up about 2.4m to 3.2m, reading 100% confidence most of the time. However, closer to shore, near the breaking waves, I was getting nonsense readings and low confidence. I suspect this is due to bubbles (thanks to mannykannot and orforforof on HN for this insight). I need to look at the full waveform data to figure out if I can get good numbers in the surf zone. In the interactive plot below, you can see the two periods where I sat waiting outside. The surf was too good to collect more data than that!
 
 {% include sonar_test_trail5_2021-01-17.html %}
 
