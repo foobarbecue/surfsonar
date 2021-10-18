@@ -21,6 +21,7 @@
 # Putting a sonar depth sensor into a surfboard
 
 <img src="https://user-images.githubusercontent.com/854789/136716532-c8290415-742d-4497-bd39-fff4d4448e42.png" height=350px />  <img src="https://user-images.githubusercontent.com/854789/136716561-d0a32797-1715-4c74-bac9-be51f06f4071.png" height=350px /> <img src="https://user-images.githubusercontent.com/854789/136716695-0046fa21-0816-493a-a275-2234a853a4c8.png" height=350px/>
+
 (yes, I've rotated the text to the correct direction since then)
 
 # Why
@@ -68,7 +69,7 @@ Note: I switch back and forth bewtween imperative tense (Cut the hole) to first 
    
 1. **Wire it up**. Connect the Ping Sonar to the BLUART board with the included pins, and the BLUART board to the RPi with the male to male usb micro cable. At this point you probably want to ssh into the board and try out the sonar using the [python libraries and included examples](https://github.com/waveshare/e-Paper/tree/master/RaspberryPi_JetsonNano/python).
 
-    <img src=https://user-images.githubusercontent.com/854789/136716861-bd218e27-a287-49b1-b143-293cdc687cec.JPG height=200px/> <img src=https://user-images.githubusercontent.com/854789/136716894-9207b048-299c-404e-b344-036c9de8c334.jpg height=200px/>
+    <img src="https://user-images.githubusercontent.com/854789/136716861-bd218e27-a287-49b1-b143-293cdc687cec.JPG" height="200" /> <img src="https://user-images.githubusercontent.com/854789/136716894-9207b048-299c-404e-b344-036c9de8c334.jpg" height="200" />
 
 1. **Set up the code**. I basically mashed together one of the e-ink examples with one of the sonar examples. Code is [here](). You probably want the code to run on boot. There are lots of ways to do this, but I used the quick-and-dirty one: add an @reboot line to crontab. Run `crontab -e` and add a line that goes something like `@reboot /home/pi/surfsonar/src/sonarDisp.py > /tmp/sonarOutput.txt 2>&1`. 
 
@@ -76,20 +77,18 @@ Note: I switch back and forth bewtween imperative tense (Cut the hole) to first 
 
 1. **Operate**.
  Before you start butchering, learn the anatomy of your board. In particular, how many stringers do you have, and where are they? Since you can't seen them on a foamie, I walked into the Catch Surf store and asked. They told me I have three stringers, all pretty close to the middle. I tried a stud finder and to my surprise it was able to see them. <br /><br /> Cut a hole in the top of the board just big enough for the Polycase box. Drill a hole in the bottom of your board with the hole saw to put the sonar in. When you flip the board, remember that the sides switch! This sounds obvious, but... turns out it's an easy mistake to make (embarrased face). If you used a 1 3/4" hole saw you'll find it's a little small and needs enlarging -- I hacked away some foam and carved away some of the plastic to enlarge the circle. I cut a channel in the bottom of the board for the cable, but didn't go all the way to the sensor hole. For cutting through the plastic on the bottom of the board I used a dremel at first and then used my Leatherman Wave saw, cutting at about a 45 deg angle to remove a triangular prism of foam with a rectangle of slick plastic on top (the "channel lid"). Then I used a drill with big drill bit to make the connections between the sensor hole, the channel, and the Polycase. I cut away enough in the "channel" to fit the excess cable, and glued the "channel lid" back on. I sealed around the edges of the sensor with silicone sealant. 
- 
-    <img src=https://user-images.githubusercontent.com/854789/136716834-6a5c9945-1a30-4f0e-b6d1-1cc34bdb4883.jpg height=200px/> <img src=https://user-images.githubusercontent.com/854789/136716840-26b05243-dd3a-4486-a1de-0783d4b40a2b.jpg height=200px/>
+
+    <img src="https://user-images.githubusercontent.com/854789/136716834-6a5c9945-1a30-4f0e-b6d1-1cc34bdb4883.jpg" height="200"/> <img src="https://user-images.githubusercontent.com/854789/136716840-26b05243-dd3a-4486-a1de-0783d4b40a2b.jpg" height="200"/>
 
 
 1. **Power** Add velcro strips to the charging pad and the top of the Polycase. Now you can keep your board vertical in a board rack and slap the charger on it. <br/><br/> I didn't add an external power switch of any kind. The PiSugar S has a feature where it switches off when the battery gets down to 3V, and switches back on when the battery is charged to 3.6V. It seems to run for 5h or so on a charge (careful test pending). So, my system is generally to attach the charger to it the night before and let it run all day until the low-voltage disconnect turns it off. The PiSugar also has a feature where attaching power should turn on the Pi even if it was shutdown normally with high battery voltage. To enable both of these auto-turn-on behaviors, there's a confusingly labelled switch, labelled AUTO on one side and ON on the other. The switch should be set on the ON side to enable the automatic behaviors.
-
 
     <img src="https://user-images.githubusercontent.com/854789/136716242-d8008624-e3d6-4af2-ab13-26b752df327a.JPG" height="200" > <img src="https://user-images.githubusercontent.com/854789/136716248-e706d4dc-2ca8-4af2-b104-d08a6375e307.JPG" height="200" >
 
 
 # Does this ruin the surfboard?
 I was concerned about compromising the watertightness of my board. Somewhere on the internet I read a heretic view that foamies don't get waterlogged, which sure would be nice, wouldn't it? I figured I'd try a test. I weighed the foam cylinder I cut on scale that measures to the gram (unfortunately I don't have anything better hand) and got 3g. I soaked it in water under a weight for a couple of days and it still weighed 3g. Note that this is fresh water, not salt water, and I suspect the repeated compression of surfing on it is what actually drives water into the foam, and I didn't test that.
-
-    <img src="https://user-images.githubusercontent.com/854789/136716757-5b8c0db4-a713-429d-80d4-24cacff93642.jpg" height="200" /> <img src="https://user-images.githubusercontent.com/854789/136716776-aa332835-18a8-4226-a3ea-e9d427427208.png" height="200" />
+<img src="https://user-images.githubusercontent.com/854789/136716757-5b8c0db4-a713-429d-80d4-24cacff93642.jpg" height="200" /> <img src="https://user-images.githubusercontent.com/854789/136716776-aa332835-18a8-4226-a3ea-e9d427427208.png" height="200" />
 
 
 # Does it work?
