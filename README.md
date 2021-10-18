@@ -46,7 +46,7 @@ One day I decided to stop wondering and find out. I figured I could build a dept
 
 **Item**|**Manufacturer**|**Model**|**Source**|**Price**|**Comment**
 :------|:------|:------|:------|:------|:------
-Computer|Raspberry Pi |4b| | |I started with the Pi Pico, but upgraded when I realized: a) The python libraries for the sonar would need significant rework b) It'd be quite nice to have wifi
+Computer|Raspberry Pi |Zero W| | |I started with the Pi Pico, but upgraded when I realized: a) The python libraries for the sonar would need significant rework b) It'd be quite nice to have wifi
 Battery system|PiSugar |S|[amazon](https://www.amazon.com/gp/product/B099RB7G78)|$29||
 Display|Waveshare|2.13inch_e-Paper_HAT|[amazon](https://www.amazon.com/gp/product/B071S8HT76)|$25|Looks great outdoors in the sun. Quite slow to refresh.|
 Sensor|Blue Robotics|Ping Sonar (Ping2D)|[Blue Robotics](https://web.archive.org/web/20201201211944/https://bluerobotics.com/store/sensors-sonars-cameras/sonar/ping-sonar-r2-rp/)|$279|The version of this I bought had potted connectors on both ends, which was a bit of a pain to install in a board. With mine, I had to cut a trench in the board to put the cable in there, and it was much longer than needed. I figured that was easier than cutting, soldering and worrying about waterproofing the joint. Since then they've upgraded the sensor-side connector to a WetLink Pentrator -- looks way more convenient. The price has gone up a bit, presumably to account for the connector.
