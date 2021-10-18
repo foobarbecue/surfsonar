@@ -2,6 +2,8 @@
 
 [writeup best viewed here](https://foobarbecue.github.io/surfsonar/)
 
+[Hacker News thread](https://news.ycombinator.com/item?id=28901214)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
