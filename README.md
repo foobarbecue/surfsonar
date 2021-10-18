@@ -73,12 +73,13 @@ I was concerned about compromising the watertightness of my board. Somewhere on 
 
 
 ## How well does it work?
-I've taken it out for one test surf and the numbers were very reasonable once I got well past the break. I paddled out to see and watched the depth tick up about 2.4m to 3.2m, reading 100% confidence most of the time. However, closer to shore, near the breaking waves, I was getting nonsense readings and low confidence. I suspect this is because the acoustic energy of the breaking waves swamps the ping signal. I'm planning to modify the code to record full waveform to see if I can get depth numbers in the breaking zone.
+I've taken it out for one test surf and the numbers were very reasonable once I got well past the break. I paddled out to see and watched the depth tick up about 2.4m to 3.2m, reading 100% confidence most of the time. However, closer to shore, near the breaking waves, I was getting nonsense readings and low confidence. I suspect this is because the acoustic energy of the breaking waves swamps the ping signal. I need to look at the full waveform data to figure out if I can get good numbers in the surf zone. Here's how the depth numbers look:
+
+{% include sonar_test_trail5_2021-01-17.html %}
 
 
 ## Todo
  - [ ] Rotate display to correct orientation
  - [ ] Parallize display update and sonar recording so it doesn't block
- - [ ] Record the full waveform
  - [ ] Add GPS & RTC
  - [ ] Add battery voltage and current monitoring
