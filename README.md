@@ -21,7 +21,7 @@
 # Putting a sonar depth sensor into a surfboard
 
 <img src="https://user-images.githubusercontent.com/854789/136716532-c8290415-742d-4497-bd39-fff4d4448e42.png" height=350px />  <img src="https://user-images.githubusercontent.com/854789/136716561-d0a32797-1715-4c74-bac9-be51f06f4071.png" height=350px /> <img src="https://user-images.githubusercontent.com/854789/136716695-0046fa21-0816-493a-a275-2234a853a4c8.png" height=350px/>
-
+(yes, I've rotated the text to the correct direction since then)
 
 # Why
 
@@ -89,7 +89,7 @@ Note: I switch back and forth bewtween imperative tense (Cut the hole) to first 
 # Does this ruin the surfboard?
 I was concerned about compromising the watertightness of my board. Somewhere on the internet I read a heretic view that foamies don't get waterlogged, which sure would be nice, wouldn't it? I figured I'd try a test. I weighed the foam cylinder I cut on scale that measures to the gram (unfortunately I don't have anything better hand) and got 3g. I soaked it in water under a weight for a couple of days and it still weighed 3g. Note that this is fresh water, not salt water, and I suspect the repeated compression of surfing on it is what actually drives water into the foam, and I didn't test that.
 
-  <img src=https://user-images.githubusercontent.com/854789/136716757-5b8c0db4-a713-429d-80d4-24cacff93642.jpg height=200px/> <img src=https://user-images.githubusercontent.com/854789/136716776-aa332835-18a8-4226-a3ea-e9d427427208.png height=200px/>
+<img src=https://user-images.githubusercontent.com/854789/136716757-5b8c0db4-a713-429d-80d4-24cacff93642.jpg height=200px /> <img src=https://user-images.githubusercontent.com/854789/136716776-aa332835-18a8-4226-a3ea-e9d427427208.png height=200px />
 
 
 # Does it work?
@@ -102,3 +102,4 @@ I've taken it out for one test surf and the numbers were very reasonable once I 
  - [ ] Parallize display update and sonar recording so it doesn't block
  - [ ] Add GPS & RTC
  - [ ] Add battery voltage and current monitoring
+ - [ ] Put time and plot on display
