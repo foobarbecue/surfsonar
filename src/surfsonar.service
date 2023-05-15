@@ -1,0 +1,10 @@
+[Unit]
+Description=Surfsonar
+
+[Service]
+Type=simple
+ExecStart=/home/aaron/surfsonar/src/sonarDisp.py
+ExecStopPost=/home/aaron/surfsonar/src/screenClear.py
+
+[Install]
+WantedBy=multi-user.target
