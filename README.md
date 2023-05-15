@@ -108,3 +108,6 @@ I've taken it out for one test surf and the numbers were very reasonable once I 
  
  # Update: 2023-05-07
  Today I assembled a new version of the "computer." I used a RPi Zero W like before, but used newer models of the Pisugar (Pisugar3) and the Waveshare 2.13in display (also V3). Additionally, I added a [STEMMA MiniGPS](https://www.adafruit.com/product/4415), which I connected over I2C by soldering to some exposed contacts on the display. The Pisugar3 adds battery monitoring and the ability to turn everything off in software and options to wake up on wireless power connection or a schedule. I also moved things around a bit so the display is fully visible. Now I need to upgrade the software to take advantage of the battery monitoring and GPS.
+
+# Update: 2023-05-014
+Switched from using crontab to using systemd for running sonarDisp.py . One challenge was that SPI devices weren't getting created until after boot is complete. I fixed this by adding spi_bcm2835 to /etc/modules.
