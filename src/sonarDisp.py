@@ -74,7 +74,7 @@ with open(f'/home/aaron/data/{datetime.now()}.txt','w') as profiledata:
         draw.text((0, 160), f"s:{gps.satellites} f:{gps.fix_quality}\n"
                             f"{gps.latitude}\n{gps.longitude}", font=font_medium)
 
-        epd.displayPartial(epd.getbuffer(canvas))
+        epd.displayPartial(epd.getbuffer(canvas.transpose(Image.ROTATE_180)))
 
         #store data
         try:
