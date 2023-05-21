@@ -7,17 +7,14 @@ from PIL import Image, ImageDraw, ImageFont
 from datetime import datetime
 import socket
 import re
-import time
 import board
 import adafruit_gps
-# sonar stuff
 from brping import Ping1D
 
-logging.basicConfig(level=logging.DEBUG, filename="/home/aaron/sonarlogs.txt")
+logging.basicConfig(level=logging.INFO, filename=f"/home/aaron/sonarlogs/{datetime.now().isoformat()}.txt")
 
 
 # Make a new sonar
-logging.info("starting sonar")
 myPing = Ping1D()
 myPing.connect_serial("/dev/ttyUSB0", 115200)
 myPing.initialize()
@@ -37,7 +34,7 @@ epd = epd2in13_V3.EPD()
 font_big = ImageFont.truetype("/home/aaron/surfsonar/src/ConsolaMonoBold-A9Am.ttf", 35)
 font_medium = ImageFont.truetype("/home/aaron/surfsonar/src/ConsolaMonoBold-A9Am.ttf", 20)
 font_small = ImageFont.truetype("/home/aaron/surfsonar/src/ConsolaMonoBold-A9Am.ttf", 15)
-logging.info("init and Clear")
+logging.info("gps_time,depth,confidence,batt_soc,gps_nmea")
 
 canvas = Image.new("1", (epd.width, epd.height), 255)
 draw = ImageDraw.Draw(canvas)
@@ -78,3 +75,10 @@ with open(f'/home/aaron/data/{datetime.now()}.txt','w') as profiledata:
                             f"{gps.latitude}\n{gps.longitude}", font=font_medium)
 
         epd.displayPartial(epd.getbuffer(canvas))
+
+        #store data
+        try:
+            iso_gps_time = datetime(*gps.datetime[:6]).isoformat()
+        except:
+            iso_gps_time = None
+        logging.info(f",{iso_gps_time},{data['distance']/1000},{data['confidence']},{batt_soc_pct},{gps.nmea_sentence}")
