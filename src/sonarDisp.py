@@ -7,7 +7,9 @@ from PIL import Image, ImageDraw, ImageFont
 from datetime import datetime
 import socket
 import re
-
+import time
+import board
+import adafruit_gps
 # sonar stuff
 from brping import Ping1D
 
@@ -24,6 +26,11 @@ myPing.initialize()
 batt_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 batt_socket.connect(('0.0.0.0', 8423))
 
+# Set up the GPS
+i2c = board.I2C()
+gps = adafruit_gps.GPS_GtopI2C(i2c, debug=False)
+gps.send_command(b"PMTK314,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0")
+gps.send_command(b"PMTK220,1000")
 
 # Make a display
 epd = epd2in13_V3.EPD()
@@ -53,6 +60,9 @@ with open(f'/home/aaron/data/{datetime.now()}.txt','w') as profiledata:
         profiledata.write(str(profile)+'\n')
         draw.rectangle((0, 0, epd.width, epd.height), fill=255)
 
+        #query GPS
+        gps.update()
+
         draw.text((0, -5), "depth", font=font_small)
         draw.text((0, 10), f"{data['distance'] / 1000 :4.1f}m", font=font_big, fill=0)
 
@@ -64,6 +74,7 @@ with open(f'/home/aaron/data/{datetime.now()}.txt','w') as profiledata:
 
         draw.text((0, 145), "gps", font=font_small)
 
-        draw.text((0, 160), "6 fix\n11S 444699\n   3696019", font=font_medium)
+        draw.text((0, 160), f"s:{gps.satellites} f:{gps.fix_quality}\n"
+                            f"{gps.latitude}\n{gps.longitude}", font=font_medium)
 
         epd.displayPartial(epd.getbuffer(canvas))
