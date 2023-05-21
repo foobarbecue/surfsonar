@@ -5,6 +5,8 @@ import logging
 from waveshare_epd import epd2in13_V3
 from PIL import Image, ImageDraw, ImageFont
 from datetime import datetime
+import socket
+import re
 
 # sonar stuff
 from brping import Ping1D
@@ -17,6 +19,11 @@ logging.info("starting sonar")
 myPing = Ping1D()
 myPing.connect_serial("/dev/ttyUSB0", 115200)
 myPing.initialize()
+
+# Set up a socket to talk to the pisugar3 battery module
+batt_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+batt_socket.connect(('0.0.0.0', 8423))
+
 
 # Make a display
 epd = epd2in13_V3.EPD()
@@ -34,6 +41,12 @@ epd.displayPartBaseImage(epd.getbuffer(canvas))
 
 with open(f'/home/aaron/data/{datetime.now()}.txt','w') as profiledata:
     while True:
+        #query battery module
+        batt_socket.send(b'get battery')
+        batt_soc_str = batt_socket.recv(20).decode()
+        batt_soc_pct = float(re.match('battery: (\d\d.\d\d).*', batt_soc_str)[1])
+
+        #query sonar
         data = myPing.get_distance()
         profile = myPing.get_profile()
         profile['timestamp'] = datetime.now().isoformat().replace(':','-')
@@ -47,7 +60,7 @@ with open(f'/home/aaron/data/{datetime.now()}.txt','w') as profiledata:
         draw.text((0, 60), f"{data['confidence']:3}%", font=font_big, fill=0)
 
         draw.text((0, 95), "battery", font=font_small)
-        draw.text((0, 110), " 33%", font=font_big, fill=0)
+        draw.text((0, 110), f"{batt_soc_pct:3.1f}%", font=font_big, fill=0)
 
         draw.text((0, 145), "gps", font=font_small)
 
