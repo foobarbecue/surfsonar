@@ -46,7 +46,7 @@ epd.init()
 epd.Clear(0xFF)
 epd.displayPartBaseImage(epd.getbuffer(canvas))
 
-with open(f'/home/aaron/data/{datetime.now()}.txt','w') as profiledata:
+with open(f'/home/aaron/data/{datetime.now()}.csv','w') as profiledata:
     while True:
         #query battery module
         batt_socket.send(b'get battery')
@@ -58,34 +58,42 @@ with open(f'/home/aaron/data/{datetime.now()}.txt','w') as profiledata:
             batt_soc_pct = float('nan')
 
         #query sonar
-        data = myPing.get_distance()
-        profile = myPing.get_profile()
-        profile['timestamp'] = datetime.now().isoformat().replace(':','-')
-        profiledata.write(str(profile)+'\n')
+        if sonar:
+            sonardata = sonar.get_distance()
+            profile = sonar.get_profile()
+            profile['timestamp'] = datetime.now().isoformat().replace(':','-')
+            profiledata.write(str(profile)+'\n')
+        else:
+            sonardata = {'distance':float('nan'), 'confidence':float('nan')}
+
         draw.rectangle((0, 0, epd.width, epd.height), fill=255)
 
         #query GPS
         gps.update()
 
         draw.text((0, -5), "depth", font=font_small)
-        draw.text((0, 10), f"{data['distance'] / 1000 :4.1f}m", font=font_big, fill=0)
+        draw.text((0, 10), f"{sonardata['distance'] / 1000 :4.1f}m", font=font_big, fill=0)
 
         draw.text((0, 45), "confidence", font=font_small)
-        draw.text((0, 60), f"{data['confidence']:3}%", font=font_big, fill=0)
+        draw.text((0, 60), f"{sonardata['confidence']:3}%", font=font_big, fill=0)
 
         draw.text((0, 95), "battery", font=font_small)
         draw.text((0, 110), f"{batt_soc_pct:3.1f}%", font=font_big, fill=0)
 
         draw.text((0, 145), "gps", font=font_small)
 
-        draw.text((0, 160), f"s:{gps.satellites} f:{gps.fix_quality}\n"
-                            f"{gps.latitude}\n{gps.longitude}", font=font_medium)
+        draw.text((0, 160), f"s:{gps.satellites} f:{gps.fix_quality}", font=font_medium)
+        draw.text((0, 180), f"{gps.latitude}", font=font_medium)
+        draw.text((0, 200), f"{gps.longitude}", font=font_medium)
 
-        epd.displayPartial(epd.getbuffer(canvas.transpose(Image.ROTATE_180)))
-
-        #store data
         try:
             iso_gps_time = datetime(*gps.datetime[:6]).isoformat()
         except:
             iso_gps_time = None
-        logging.info(f",{iso_gps_time},{data['distance']/1000},{data['confidence']},{batt_soc_pct},{gps.nmea_sentence}")
+        draw.text((0, 220), f"{gps.datetime.tm_hour}:{gps.datetime.tm_min}", font=font_medium)
+
+        epd.displayPartial(epd.getbuffer(canvas.transpose(Image.ROTATE_180)))
+
+
+        #store data
+        logging.info(f",{iso_gps_time},{sonardata['distance'] / 1000},{sonardata['confidence']},{batt_soc_pct},{gps.nmea_sentence}")
