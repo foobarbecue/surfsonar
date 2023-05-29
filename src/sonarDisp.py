@@ -48,7 +48,11 @@ with open(f'/home/aaron/data/{datetime.now()}.txt','w') as profiledata:
         #query battery module
         batt_socket.send(b'get battery')
         batt_soc_str = batt_socket.recv(20).decode()
-        batt_soc_pct = float(re.match('battery: (\d\d.\d\d).*', batt_soc_str)[1])
+        batt_soc_str = re.match('battery: (\d\d.\d\d).*', batt_soc_str)
+        if batt_soc_str:
+            batt_soc_pct = float(batt_soc_str[1])
+        else:
+            batt_soc_pct = float('nan')
 
         #query sonar
         data = myPing.get_distance()
