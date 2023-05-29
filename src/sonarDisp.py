@@ -15,9 +15,12 @@ logging.basicConfig(level=logging.INFO, filename=f"/home/aaron/sonarlogs/{dateti
 
 
 # Make a new sonar
-myPing = Ping1D()
-myPing.connect_serial("/dev/ttyUSB0", 115200)
-myPing.initialize()
+sonar = Ping1D()
+try:
+    sonar.connect_serial("/dev/ttyUSB0", 115200)
+    sonar.initialize()
+except:
+    sonar = None
 
 # Set up a socket to talk to the pisugar3 battery module
 batt_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
