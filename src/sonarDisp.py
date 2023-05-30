@@ -88,9 +88,11 @@ with open(f'/home/aaron/data/{datetime.now()}.csv','w') as profiledata:
 
         try:
             iso_gps_time = datetime(*gps.datetime[:6]).isoformat()
+            gps_time_only = f"{gps.datetime.tm_hour}:{gps.datetime.tm_min}"
         except:
             iso_gps_time = None
-        draw.text((0, 220), f"{gps.datetime.tm_hour}:{gps.datetime.tm_min}", font=font_medium)
+            gps_time_only = None
+        draw.text((0, 220), str(gps_time_only), font=font_medium)
 
         epd.displayPartial(epd.getbuffer(canvas.transpose(Image.ROTATE_180)))
 
